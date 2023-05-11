@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "995754606000",
+    "firebase_url": "https://mf-kpop-44b2a-default-rtdb.firebaseio.com",
+    "project_id": "mf-kpop-44b2a",
+    "storage_bucket": "mf-kpop-44b2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995754606000:android:c8e4061229f87774916a75",
+        "android_client_info": {
+          "package_name": "com.maftuhin.kpop_lyrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995754606000-pifgvqc9vpdline46u4opdta2cjch7ap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSoDYgwsfFHzZqV6uCzD_LHwrQmD58lf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995754606000-pifgvqc9vpdline46u4opdta2cjch7ap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
