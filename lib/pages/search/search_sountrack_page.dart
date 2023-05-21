@@ -36,6 +36,7 @@ class _SearchSoundtrackPageState extends State<SearchSoundtrackPage> {
               padding: EdgeInsets.all(8.0),
               child: Icon(LineIcons.search),
             ),
+            hintText: "search here",
             controller: query,
             onChanged: (value) {
               _pageController.refresh();

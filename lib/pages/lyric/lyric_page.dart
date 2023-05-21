@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:kpop_lyrics/pages/lyric/audio_view.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
 import 'package:kpop_lyrics/utils/mf_util.dart';
+import 'package:kpop_lyrics/widgets/loading/shimmer_lyric.dart';
 import 'package:line_icons/line_icons.dart';
 
 final repoProvider = Provider((ref) => SongRepository());
@@ -62,9 +63,7 @@ class LyricPage extends ConsumerWidget {
       error: (error, stackTrace) => Scaffold(
         body: Center(child: Text(error.toString())),
       ),
-      loading: () => const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      ),
+      loading: () => const ShimmerLyric(),
     );
   }
 }

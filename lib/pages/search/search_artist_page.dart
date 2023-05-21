@@ -42,6 +42,7 @@ class _SearchArtistPageState extends State<SearchArtistPage> {
               padding: EdgeInsets.all(8.0),
               child: Icon(LineIcons.search),
             ),
+            hintText: "search here",
             controller: query,
             onChanged: (value) => debouncer.run(() {
               _pagingController.refresh();

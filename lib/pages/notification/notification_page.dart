@@ -1,8 +1,8 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-import 'package:kpop_lyrics/models/m_notification.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:kpop_lyrics/models/m_artist.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});
@@ -12,7 +12,7 @@ class NotificationPage extends StatefulWidget {
 }
 
 class _NotificationPageState extends State<NotificationPage> {
-  final List<MNotification> data = [];
+  final List<MArtist> data = [];
 
   @override
   void initState() {
@@ -23,13 +23,22 @@ class _NotificationPageState extends State<NotificationPage> {
   void fetchNotification() {
     final box = Hive.box("notifications");
     for (var element in box.values) {
-      var notification = MNotification();
-      notification.title = element["title"];
-      notification.body = element["body"];
+      var artist = MArtist();
+      artist.name = element["name"];
+      artist.code = element["code"];
       setState(() {
-        data.add(notification);
+        data.add(artist);
       });
     }
+  }
+
+  Future<void> unsubscribeFromTopic(MArtist a) async {
+    setState(() {
+      data.remove(a);
+    });
+    var box = Hive.box("notifications");
+    box.delete(a.code ?? "");
+    await FirebaseMessaging.instance.unsubscribeFromTopic(a.code ?? "");
   }
 
   @override
@@ -37,42 +46,45 @@ class _NotificationPageState extends State<NotificationPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Notification"),
-        actions: [
-          IconButton(
-              onPressed: () {
-                var box = Hive.box("notifications");
-                box.clear();
-                setState(() => data.clear());
+      ),
+      body: data.isNotEmpty
+          ? ListView.separated(
+              itemBuilder: (context, index) {
+                final item = data[index];
+                return _NotificationItem(
+                  item: item,
+                  onChange: (d, status) async {
+                    unsubscribeFromTopic(d);
+                  },
+                );
               },
-              icon: const Icon(LineIcons.trash)),
-        ],
-      ),
-      body: ListView.separated(
-        itemBuilder: (context, index) {
-          final item = data[index];
-          return _NotificationItem(item: item);
-        },
-        separatorBuilder: (context, index) => const Divider(height: 0.0),
-        itemCount: data.length,
-      ),
+              separatorBuilder: (context, index) => const Divider(height: 0.0),
+              itemCount: data.length,
+            )
+          : const Center(
+              child: Text("you are not subscribed to any notification update"),
+            ),
     );
   }
 }
 
 class _NotificationItem extends StatelessWidget {
-  final MNotification item;
+  final MArtist item;
+  final Function(MArtist data, bool status) onChange;
   const _NotificationItem({
     Key? key,
     required this.item,
+    required this.onChange,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(item.title ?? ""),
-      subtitle: Text(item.body ?? ""),
-      dense: item.isRead,
-      isThreeLine: true,
+      title: Text(item.name ?? ""),
+      trailing: Switch(
+        value: true,
+        onChanged: (value) => onChange(item, value),
+      ),
       onTap: () {},
     );
   }

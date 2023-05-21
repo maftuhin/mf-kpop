@@ -17,16 +17,14 @@ class _TimelinePageState extends State<TimelinePage> {
   @override
   void initState() {
     FirebaseMessaging.onMessageOpenedApp.listen((event) {
-      saveToBox(event);
-      context.push('/notification');
+      var link = event.data["link"];
+      context.push(link);
     });
     super.initState();
   }
 
   Future<void> saveToBox(RemoteMessage event) async {
     final box = Hive.box("notifications");
-    final data = event.notification?.toMap();
-    data?["messageId"] = event.messageId;
     box.put(event.messageId, event.notification?.toMap());
   }
 
@@ -37,9 +35,7 @@ class _TimelinePageState extends State<TimelinePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AdsSection(),
-          Divider(),
           MenuSection(),
-          Divider(),
           LastUpdateSection(),
         ],
       ),

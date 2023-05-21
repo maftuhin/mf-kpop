@@ -59,8 +59,7 @@ class _LastUpdateItem extends StatelessWidget {
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
       trailing: Chip(
-        label: Text(item.language ?? ""),
-        backgroundColor: Colors.green[100],
+        label: Text("${item.view} view"),
       ),
       onTap: () {
         context.push("/lyric/${item.uid}");

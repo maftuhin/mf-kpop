@@ -109,7 +109,8 @@ class _AudioViewState extends State<AudioView> {
     return Container(
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5, color: Colors.green),
+        color: Theme.of(context).colorScheme.background,
+        border: Border(top: BorderSide(color: Theme.of(context).colorScheme.primary)),
       ),
       height: 80.0,
       child: Row(

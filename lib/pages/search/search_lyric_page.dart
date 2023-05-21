@@ -39,6 +39,7 @@ class _SearchLyricPageState extends State<SearchLyricPage> {
               padding: EdgeInsets.all(8.0),
               child: Icon(LineIcons.search),
             ),
+            hintText: "search here",
             controller: query,
             onChanged: (value) => debouncer.run(() {
               _pagingController.refresh();
@@ -75,6 +76,7 @@ class _LyricItem extends StatelessWidget {
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
       leading: const CircleAvatar(child: Icon(LineIcons.music)),
+      trailing: Chip(label: Text("${item.view} view")),
       onTap: () {
         context.push("/lyric/${item.uid}");
       },

@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:hive/hive.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kpop_lyrics/models/m_artist.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
@@ -26,6 +28,7 @@ class _ArtistPageState extends State<ArtistPage> {
       PagingController(firstPageKey: 0);
   BannerAd? _bannerAd;
   String? imageBackground;
+  var isSubscribe = false;
 
   @override
   void initState() {
@@ -48,6 +51,7 @@ class _ArtistPageState extends State<ArtistPage> {
       SongRepository()
           .songByArtist(_pagingController, widget.artist?.code ?? "", pageKey);
     });
+    subsStatus();
     getImage();
     super.initState();
   }
@@ -74,6 +78,42 @@ class _ArtistPageState extends State<ArtistPage> {
     }
   }
 
+  void subsStatus() {
+    var box = Hive.box("notifications");
+    var data = box.get(widget.artist?.code);
+    if (data != null && data["subs"] == true) {
+      setState(() {
+        isSubscribe = true;
+      });
+    } else {
+      setState(() {
+        isSubscribe = false;
+      });
+    }
+  }
+
+  Future<void> handleSubscription() async {
+    var notification = Hive.box("notifications");
+    var artist = widget.artist;
+    var data = notification.get(artist?.code ?? "");
+    if (data != null && data["subs"] == true) {
+      setState(() {
+        isSubscribe = false;
+      });
+      await FirebaseMessaging.instance.unsubscribeFromTopic(artist?.code ?? "");
+    } else {
+      setState(() {
+        isSubscribe = true;
+      });
+      await FirebaseMessaging.instance.subscribeToTopic(artist?.code ?? "");
+    }
+    notification.put(artist?.code, {
+      "name": artist?.name,
+      "code": artist?.code,
+      "subs": isSubscribe,
+    });
+  }
+
   @override
   void dispose() {
     _bannerAd?.dispose();
@@ -93,19 +133,28 @@ class _ArtistPageState extends State<ArtistPage> {
               pinned: true,
               actions: [
                 IconButton(
+                  onPressed: () => handleSubscription(),
+                  icon: Icon(
+                    isSubscribe ? LineIcons.bellSlash : LineIcons.bellAlt,
+                  ),
+                ),
+                IconButton(
                   onPressed: () => pickImage(),
                   icon: const Icon(LineIcons.image),
                 )
               ],
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                title: Text(widget.artist?.name ?? "").animate().shake(),
+                title: Text(
+                  widget.artist?.name ?? "",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ).animate().shake(),
                 background: imageBackground != null
                     ? Image.file(
                         File(imageBackground.toString()),
                         fit: BoxFit.cover,
                       )
-                    : Container(color: Colors.green),
+                    : Container(),
               ),
             )
           ];
@@ -146,6 +195,7 @@ class _SongItem extends StatelessWidget {
     return ListTile(
       leading: const Icon(LineIcons.music),
       title: Text(item.title ?? ""),
+      trailing: Chip(label: Text("${item.view} view")),
       onTap: () {
         context.push("/lyric/${item.uid}");
       },
