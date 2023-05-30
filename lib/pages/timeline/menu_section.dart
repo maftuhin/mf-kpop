@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kpop_lyrics/models/m_menu.dart';
@@ -18,12 +19,12 @@ class MenuSection extends StatelessWidget {
             MMenu(
               menu: "Most Viewed",
               path: "/most-viewed",
-              icon: LineIcons.trophy,
+              icon: FluentIcons.trophy_16_regular,
             ),
             MMenu(
               menu: "Request",
               path: "/request",
-              icon: LineIcons.alternateCloudUpload,
+              icon: FluentIcons.mail_add_16_regular,
             ),
           ]
               .map((e) => InkWell(

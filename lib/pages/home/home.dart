@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -29,15 +30,18 @@ class HomePage extends ConsumerWidget {
         selectedIndex: index,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         destinations: const [
-          NavigationDestination(icon: Icon(LineIcons.home), label: "home"),
-          NavigationDestination(icon: Icon(LineIcons.user), label: "artist"),
-          NavigationDestination(icon: Icon(LineIcons.music), label: "lyric"),
           NavigationDestination(
-            icon: Icon(LineIcons.listUl),
+              icon: Icon(FluentIcons.home_16_regular), label: "home"),
+          NavigationDestination(
+              icon: Icon(FluentIcons.person_16_regular), label: "artist"),
+          NavigationDestination(
+              icon: Icon(FluentIcons.music_note_2_16_regular), label: "lyric"),
+          NavigationDestination(
+            icon: Icon(FluentIcons.list_bar_16_regular),
             label: "soundtrack",
           ),
           NavigationDestination(
-            icon: Icon(LineIcons.bookmark),
+            icon: Icon(FluentIcons.bookmark_16_regular),
             label: "bookmark",
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -75,7 +76,7 @@ class _LyricItem extends StatelessWidget {
     return ListTile(
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
-      leading: const CircleAvatar(child: Icon(LineIcons.music)),
+      leading: const CircleAvatar(child: Icon(FluentIcons.music_note_2_play_20_regular)),
       trailing: Chip(label: Text("${item.view} view")),
       onTap: () {
         context.push("/lyric/${item.uid}");

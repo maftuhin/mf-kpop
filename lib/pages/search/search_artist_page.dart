@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -73,7 +74,7 @@ class _ArtistItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: const CircleAvatar(
-        child: Icon(LineIcons.user),
+        child: Icon(FluentIcons.person_16_regular),
       ),
       title: Text(item.name ?? ""),
       onTap: () {

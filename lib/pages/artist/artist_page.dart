@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -174,7 +175,7 @@ class _ArtistPageState extends State<ArtistPage> {
           context.push("/community/${widget.artist?.code}",
               extra: widget.artist);
         },
-        child: const Icon(LineIcons.facebookMessenger),
+        child: const Icon(FluentIcons.chat_12_regular),
       ),
       bottomNavigationBar: SizedBox(
         height: AdSize.banner.height.toDouble(),
@@ -193,7 +194,7 @@ class _SongItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(LineIcons.music),
+      leading: const Icon(FluentIcons.music_note_2_play_20_regular),
       title: Text(item.title ?? ""),
       trailing: Chip(label: Text("${item.view} view")),
       onTap: () {

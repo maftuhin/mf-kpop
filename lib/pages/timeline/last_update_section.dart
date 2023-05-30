@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -55,7 +56,7 @@ class _LastUpdateItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(LineIcons.music),
+      leading: const Icon(FluentIcons.music_note_2_play_20_regular),
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
       trailing: Chip(
