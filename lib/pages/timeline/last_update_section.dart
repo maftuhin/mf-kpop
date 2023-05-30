@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
-import 'package:line_icons/line_icons.dart';
 
 final repoProvider = Provider((ref) => SongRepository());
 final latestProvider = FutureProvider.autoDispose(

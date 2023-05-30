@@ -1,6 +1,6 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -42,13 +42,13 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const CircleAvatar(radius: 40.0, child: Icon(LineIcons.user)),
+            const CircleAvatar(radius: 40.0, child: Icon(FluentIcons.person_12_regular)),
             const SizedBox(height: 20.0),
             TextField(
               controller: uid,
               enabled: false,
               decoration: const InputDecoration(
-                prefixIcon: Icon(LineIcons.at),
+                prefixIcon: Icon(FluentIcons.mail_16_regular),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
             TextField(
               controller: firstName,
               decoration: const InputDecoration(
-                prefixIcon: Icon(LineIcons.user),
+                prefixIcon: Icon(FluentIcons.person_16_regular),
                 border: OutlineInputBorder(),
               ),
             ),

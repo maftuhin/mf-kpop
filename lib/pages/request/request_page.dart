@@ -1,9 +1,9 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kpop_lyrics/repository/request_repository.dart';
 import 'package:kpop_lyrics/utils/ad_helper.dart';
-import 'package:line_icons/line_icons.dart';
 
 class RequestPage extends StatefulWidget {
   const RequestPage({super.key});
@@ -106,14 +106,14 @@ class _RequestPageState extends State<RequestPage> {
             TextField(
               controller: txtArtist,
               decoration: const InputDecoration(
-                prefixIcon: Icon(LineIcons.user),
+                prefixIcon: Icon(FluentIcons.person_20_regular),
                 hintText: "Artist"
               ),
             ),
             TextField(
               controller: txtTitle,
               decoration: const InputDecoration(
-                prefixIcon: Icon(LineIcons.music),
+                prefixIcon: Icon(FluentIcons.music_note_1_20_regular),
                 hintText: "Title"
               ),
             ),

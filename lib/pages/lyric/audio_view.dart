@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -9,7 +10,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
 import 'package:kpop_lyrics/utils/ad_helper.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AudioView extends StatefulWidget {
@@ -110,14 +110,18 @@ class _AudioViewState extends State<AudioView> {
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
-        border: Border(top: BorderSide(color: Theme.of(context).colorScheme.primary)),
+        border: Border(
+            top: BorderSide(color: Theme.of(context).colorScheme.primary)),
       ),
       height: 80.0,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          IconButton(onPressed: () {}, icon: const Icon(LineIcons.music)),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(FluentIcons.music_note_2_play_20_regular),
+          ),
           const SizedBox(width: 12.0),
           Expanded(
             child: Column(
@@ -139,7 +143,7 @@ class _AudioViewState extends State<AudioView> {
             onPressed: () {
               playOrPickFile();
             },
-            icon: const Icon(LineIcons.folderPlus),
+            icon: const Icon(FluentIcons.folder_16_regular),
           ),
           IconButton(
             onPressed: () async {
@@ -152,7 +156,9 @@ class _AudioViewState extends State<AudioView> {
                 check();
               }
             },
-            icon: Icon(isPlaying ? LineIcons.pause : LineIcons.play),
+            icon: Icon(isPlaying
+                ? FluentIcons.pause_12_regular
+                : FluentIcons.play_12_regular),
           ),
         ],
       ),

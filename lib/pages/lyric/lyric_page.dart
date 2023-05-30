@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
@@ -5,7 +6,6 @@ import 'package:kpop_lyrics/pages/lyric/audio_view.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
 import 'package:kpop_lyrics/utils/mf_util.dart';
 import 'package:kpop_lyrics/widgets/loading/shimmer_lyric.dart';
-import 'package:line_icons/line_icons.dart';
 
 final repoProvider = Provider((ref) => SongRepository());
 final songProvider = FutureProvider.family.autoDispose(
@@ -39,7 +39,7 @@ class LyricPage extends ConsumerWidget {
                     var box = Hive.box("bookmarks");
                     box.put(item.uid, item.toMap());
                   },
-                  icon: const Icon(LineIcons.bookmark),
+                  icon: const Icon(FluentIcons.bookmark_16_regular),
                 )
               ],
             ),

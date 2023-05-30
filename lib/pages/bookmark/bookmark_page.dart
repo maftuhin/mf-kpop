@@ -1,8 +1,8 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
-import 'package:line_icons/line_icons.dart';
 
 class BookmarkPage extends StatefulWidget {
   const BookmarkPage({super.key});
@@ -40,7 +40,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
         final item = data[index];
         return ListTile(
           leading: const CircleAvatar(
-            child: Icon(LineIcons.music),
+            child: Icon(FluentIcons.music_note_2_play_20_regular),
           ),
           trailing: IconButton(
             onPressed: () {
@@ -51,7 +51,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
               });
               fetch();
             },
-            icon: const Icon(LineIcons.trash),
+            icon: const Icon(FluentIcons.delete_16_regular),
           ),
           title: Text(item.title ?? ""),
           onTap: () {

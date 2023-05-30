@@ -5,7 +5,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kpop_lyrics/models/m_artist.dart';
 import 'package:kpop_lyrics/repository/artist_repository.dart';
 import 'package:kpop_lyrics/utils/debouncer.dart';
-import 'package:line_icons/line_icons.dart';
 
 class SearchArtistPage extends StatefulWidget {
   const SearchArtistPage({super.key});
@@ -41,7 +40,7 @@ class _SearchArtistPageState extends State<SearchArtistPage> {
           child: SearchBar(
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(LineIcons.search),
+              child: Icon(FluentIcons.search_12_regular),
             ),
             hintText: "search here",
             controller: query,

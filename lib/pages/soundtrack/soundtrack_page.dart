@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -5,7 +6,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/models/m_track.dart';
 import 'package:kpop_lyrics/repository/ost_repository.dart';
-import 'package:line_icons/line_icons.dart';
 
 class SoundtrackPage extends StatefulWidget {
   final MTrack data;
@@ -57,7 +57,7 @@ class _SoundtrackPageState extends State<SoundtrackPage> {
             itemBuilder: (context, item, index) {
               return ListTile(
                 leading: const CircleAvatar(
-                  child: Icon(LineIcons.music),
+                  child: Icon(FluentIcons.music_note_2_play_20_regular),
                 ),
                 title: Text(item.title ?? ""),
                 subtitle: Text(item.artist ?? ""),

@@ -1,9 +1,9 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kpop_lyrics/models/m_track.dart';
 import 'package:kpop_lyrics/repository/ost_repository.dart';
-import 'package:line_icons/line_icons.dart';
 
 class SearchSoundtrackPage extends StatefulWidget {
   const SearchSoundtrackPage({super.key});
@@ -34,7 +34,7 @@ class _SearchSoundtrackPageState extends State<SearchSoundtrackPage> {
           child: SearchBar(
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(LineIcons.search),
+              child: Icon(FluentIcons.search_12_regular),
             ),
             hintText: "search here",
             controller: query,
@@ -70,7 +70,7 @@ class _SoundtrackItem extends StatelessWidget {
           ? CircleAvatar(
               backgroundImage: NetworkImage(item.image ?? ""),
             )
-          : const CircleAvatar(child: Icon(LineIcons.film)),
+          : const CircleAvatar(child: Icon(FluentIcons.movies_and_tv_16_regular)),
       title: Text(item.title ?? ""),
       onTap: () {
         context.push("/soundtrack/${item.uid}", extra: item);

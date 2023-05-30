@@ -2,8 +2,6 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kpop_lyrics/models/m_menu.dart';
-import 'package:line_icons/line_icons.dart';
-
 class MenuSection extends StatelessWidget {
   const MenuSection({super.key});
 

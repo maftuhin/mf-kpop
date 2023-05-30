@@ -13,7 +13,6 @@ import 'package:kpop_lyrics/models/m_artist.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
 import 'package:kpop_lyrics/utils/ad_helper.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ArtistPage extends StatefulWidget {
@@ -136,12 +135,14 @@ class _ArtistPageState extends State<ArtistPage> {
                 IconButton(
                   onPressed: () => handleSubscription(),
                   icon: Icon(
-                    isSubscribe ? LineIcons.bellSlash : LineIcons.bellAlt,
+                    isSubscribe
+                        ? FluentIcons.alert_16_regular
+                        : FluentIcons.alert_off_16_regular,
                   ),
                 ),
                 IconButton(
                   onPressed: () => pickImage(),
-                  icon: const Icon(LineIcons.image),
+                  icon: const Icon(FluentIcons.image_16_regular),
                 )
               ],
               flexibleSpace: FlexibleSpaceBar(

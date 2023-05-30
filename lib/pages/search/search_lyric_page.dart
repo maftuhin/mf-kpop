@@ -2,7 +2,6 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:line_icons/line_icons.dart';
 
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
@@ -38,7 +37,7 @@ class _SearchLyricPageState extends State<SearchLyricPage> {
           child: SearchBar(
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(LineIcons.search),
+              child: Icon(FluentIcons.search_12_regular),
             ),
             hintText: "search here",
             controller: query,

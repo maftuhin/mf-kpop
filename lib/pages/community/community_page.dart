@@ -4,13 +4,13 @@ import 'dart:io' as io;
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
@@ -117,7 +117,7 @@ class _CommunityPageState extends State<CommunityPage> {
                 _generateUidWhenEmpty();
               }
             },
-            icon: const Icon(LineIcons.userEdit),
+            icon: const Icon(FluentIcons.circle_edit_20_regular),
           )
         ],
       ),
