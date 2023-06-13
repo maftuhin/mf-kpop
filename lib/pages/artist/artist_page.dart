@@ -136,8 +136,8 @@ class _ArtistPageState extends State<ArtistPage> {
                   onPressed: () => handleSubscription(),
                   icon: Icon(
                     isSubscribe
-                        ? FluentIcons.alert_16_regular
-                        : FluentIcons.alert_off_16_regular,
+                        ? FluentIcons.alert_off_16_regular
+                        : FluentIcons.alert_16_regular,
                   ),
                 ),
                 IconButton(

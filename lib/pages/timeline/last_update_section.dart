@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
+import 'package:kpop_lyrics/utils/mf_util.dart';
 
 final repoProvider = Provider((ref) => SongRepository());
 final latestProvider = FutureProvider.autoDispose(
@@ -59,7 +60,7 @@ class _LastUpdateItem extends StatelessWidget {
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
       trailing: Chip(
-        label: Text("${item.view} view"),
+        label: Text(MFUtil.viewFormat(item.view)),
       ),
       onTap: () {
         context.push("/lyric/${item.uid}");

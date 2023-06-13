@@ -46,23 +46,13 @@ class HomePage extends ConsumerWidget {
         ],
         onDestinationSelected: (value) {
           ref.read(indexProvider.notifier).state = value;
-          var route = "";
-          switch (value) {
-            case 1:
-              route = "/search/artist";
-              break;
-            case 2:
-              route = "/search/lyric";
-              break;
-            case 3:
-              route = "/search/soundtrack";
-              break;
-            case 4:
-              route = "/bookmark";
-              break;
-            default:
-              route = "/";
-          }
+          var route = switch (value) {
+            1 => "/search/artist",
+            2 => "/search/lyric",
+            3 => "/search/soundtrack",
+            4 => "/bookmark",
+            _ => "/",
+          };
           context.go(route);
         },
       ),

@@ -6,6 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
 import 'package:kpop_lyrics/pages/leaderboard/widget/item_color.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
+import 'package:kpop_lyrics/utils/mf_util.dart';
 
 class MostViewedPage extends StatefulWidget {
   const MostViewedPage({super.key});
@@ -106,7 +107,7 @@ class _MostViewedItem extends StatelessWidget {
       ),
       title: Text(item.title ?? ""),
       subtitle: Text(item.artist ?? ""),
-      trailing: Chip(label: Text("${item.view} view")),
+      trailing: Chip(label: Text(MFUtil.viewFormat(item.view))),
     );
   }
 }

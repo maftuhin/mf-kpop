@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final lightTheme = ThemeData(
   appBarTheme: appBarTheme,
@@ -7,6 +8,7 @@ final lightTheme = ThemeData(
     primary: Colors.green,
     secondary: Colors.green
   ),
+  textTheme: GoogleFonts.latoTextTheme(),
   dividerTheme: const DividerThemeData(
     thickness: 0.5,
   )
@@ -18,6 +20,7 @@ final darkTheme = ThemeData.dark().copyWith(
   dividerTheme: const DividerThemeData(
     thickness: 0.5,
   ),
+  textTheme: GoogleFonts.latoTextTheme(),
   colorScheme: const ColorScheme.dark(
     primary: Colors.green,
     secondary: Colors.green

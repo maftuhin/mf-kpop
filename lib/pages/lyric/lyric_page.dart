@@ -49,7 +49,7 @@ class LyricPage extends ConsumerWidget {
                     (e) => SingleChildScrollView(
                       padding: const EdgeInsets.all(12.0),
                       child: SelectableText(
-                        MFUtil().replace(e.lyric),
+                        MFUtil.replace(e.lyric),
                         textAlign: TextAlign.center,
                       ),
                     ),

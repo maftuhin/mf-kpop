@@ -58,6 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
               decoration: const InputDecoration(
                 prefixIcon: Icon(FluentIcons.person_16_regular),
                 border: OutlineInputBorder(),
+                hintText: "Username"
               ),
             ),
             const SizedBox(height: 20.0),
