@@ -11,6 +11,7 @@ import 'package:hive/hive.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kpop_lyrics/models/m_artist.dart';
 import 'package:kpop_lyrics/models/m_song.dart';
+import 'package:kpop_lyrics/repository/download_repository.dart';
 import 'package:kpop_lyrics/repository/song_repository.dart';
 import 'package:kpop_lyrics/utils/ad_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -132,6 +133,12 @@ class _ArtistPageState extends State<ArtistPage> {
               floating: false,
               pinned: true,
               actions: [
+                IconButton(
+                  onPressed: () {
+                    DownloadRepository.downloadArtist(widget.artist);
+                  },
+                  icon: const Icon(FluentIcons.arrow_download_16_regular),
+                ),
                 IconButton(
                   onPressed: () => handleSubscription(),
                   icon: Icon(

@@ -13,6 +13,7 @@ import 'package:kpop_lyrics/pages/notification/notification_page.dart';
 import 'package:kpop_lyrics/pages/request/request_page.dart';
 import 'package:kpop_lyrics/pages/search/search_artist_page.dart';
 import 'package:kpop_lyrics/pages/search/search_lyric_page.dart';
+import 'package:kpop_lyrics/pages/setting/app_mode_page.dart';
 import 'package:kpop_lyrics/pages/soundtrack/soundtrack_page.dart';
 import 'package:kpop_lyrics/pages/timeline/timeline_page.dart';
 
@@ -115,6 +116,11 @@ final goRouter = GoRouter(
       path: "/profile",
       parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const ProfilePage(),
+    ),
+    GoRoute(
+      path: "/app-mode",
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, state) => const AppModePage(),
     ),
   ],
 );

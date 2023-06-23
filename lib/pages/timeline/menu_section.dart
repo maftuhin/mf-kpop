@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kpop_lyrics/models/m_menu.dart';
+
 class MenuSection extends StatelessWidget {
   const MenuSection({super.key});
 
@@ -23,6 +24,11 @@ class MenuSection extends StatelessWidget {
               menu: "Request",
               path: "/request",
               icon: FluentIcons.mail_add_16_regular,
+            ),
+            MMenu(
+              menu: "App Mode",
+              path: "/app-mode",
+              icon: FluentIcons.wifi_warning_20_regular,
             ),
           ]
               .map((e) => InkWell(

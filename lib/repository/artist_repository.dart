@@ -1,4 +1,5 @@
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:kpop_lyrics/core/mf_database.dart';
 import 'package:kpop_lyrics/core/mf_network.dart';
 import 'package:kpop_lyrics/models/m_paging_artist.dart';
 
@@ -22,6 +23,20 @@ class ArtistRepository {
       }
     } catch (e) {
       pagingController.error = e;
+    }
+  }
+
+  Future<void> searchFromDb(
+    PagingController pagingController,
+    String query,
+    int page,
+  ) async {
+    final db = MFDatabase.instance;
+    final result = await db.searchArtist(page, query);
+    if (result.length < 10) {
+      pagingController.appendLastPage(result);
+    } else {
+      pagingController.appendPage(result, page + 1);
     }
   }
 }
