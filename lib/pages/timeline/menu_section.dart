@@ -25,11 +25,6 @@ class MenuSection extends StatelessWidget {
               path: "/request",
               icon: FluentIcons.mail_add_16_regular,
             ),
-            MMenu(
-              menu: "App Mode",
-              path: "/app-mode",
-              icon: FluentIcons.wifi_warning_20_regular,
-            ),
           ]
               .map((e) => InkWell(
                     onTap: () {
