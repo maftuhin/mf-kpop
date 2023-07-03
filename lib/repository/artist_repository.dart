@@ -10,7 +10,7 @@ class ArtistRepository {
     int page,
   ) async {
     try {
-      var request = await MFNetwork().getUri("artist?query=$query&page=$page");
+      var request = await MFNetwork.getUri("artist?query=$query&page=$page");
       if (request.statusCode == 200) {
         var data = PagingArtist.fromJson(request.body);
         if (data.isLastPage()) {

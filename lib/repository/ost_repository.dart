@@ -11,7 +11,7 @@ class OstRepository {
   ) async {
     try {
       final request =
-          await MFNetwork().getUri("soundtrack?q=$query&page=$page");
+          await MFNetwork.getUri("soundtrack?q=$query&page=$page");
       if (request.statusCode == 200) {
         final data = SoundtrackPaging.fromJson(request.body);
         if (data.page == data.totalPage) {
@@ -33,7 +33,7 @@ class OstRepository {
     PagingController controller,
   ) async {
     try {
-      final request = await MFNetwork().getUri("soundtrack/$code?page=$page");
+      final request = await MFNetwork.getUri("soundtrack/$code?page=$page");
       if (request.statusCode == 200) {
         final data = SongPaging.fromJson(request.body);
         if (data.page == data.totalPage) {

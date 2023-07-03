@@ -133,12 +133,12 @@ class _ArtistPageState extends State<ArtistPage> {
               floating: false,
               pinned: true,
               actions: [
-                IconButton(
-                  onPressed: () {
-                    DownloadRepository.downloadArtist(widget.artist);
-                  },
-                  icon: const Icon(FluentIcons.arrow_download_16_regular),
-                ),
+                // IconButton(
+                //   onPressed: () {
+                //     DownloadRepository.downloadArtist(widget.artist);
+                //   },
+                //   icon: const Icon(FluentIcons.arrow_download_16_regular),
+                // ),
                 IconButton(
                   onPressed: () => handleSubscription(),
                   icon: Icon(

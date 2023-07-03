@@ -11,7 +11,7 @@ class SongRepository {
     int pageKey,
   ) async {
     try {
-      final request = await MFNetwork().getUri("song/?q=$query&page=$pageKey");
+      final request = await MFNetwork.getUri("song/?q=$query&page=$pageKey");
       if (request.statusCode == 200) {
         final data = SongPaging.fromJson(request.body);
         final isLastPage = data.totalPage == data.page;
@@ -35,7 +35,7 @@ class SongRepository {
   ) async {
     try {
       final request =
-          await MFNetwork().getUri("song/artist/$artist?page=$pageKey");
+          await MFNetwork.getUri("song/artist/$artist?page=$pageKey");
       if (request.statusCode == 200) {
         final data = SongPaging.fromJson(request.body);
         final isLastPage = data.totalPage == data.page;
@@ -54,7 +54,7 @@ class SongRepository {
 
   Future<List<MSong>> latest() async {
     try {
-      final request = await MFNetwork().getUri("song/latest");
+      final request = await MFNetwork.getUri("song/latest");
       if (request.statusCode == 200) {
         final body = jsonDecode(request.body);
         return List<MSong>.from(body.map((x) => MSong.fromMap(x)));
@@ -68,7 +68,7 @@ class SongRepository {
 
   Future<List<MSong>> mostViewed() async {
     try {
-      final request = await MFNetwork().getUri("song/most-visited");
+      final request = await MFNetwork.getUri("song/most-visited");
       if (request.statusCode == 200) {
         final body = jsonDecode(request.body);
         return List<MSong>.from(body.map((x) => MSong.fromMap(x)));
@@ -82,7 +82,7 @@ class SongRepository {
 
   Future<List<MSong>> detail(String uid) async {
     try {
-      final request = await MFNetwork().getUri("song/$uid");
+      final request = await MFNetwork.getUri("song/$uid");
       if (request.statusCode == 200) {
         final body = jsonDecode(request.body);
         return List<MSong>.from(body.map((x) => MSong.fromMap(x)));
@@ -96,7 +96,7 @@ class SongRepository {
 
   Future<void> counterView(int id) async {
     try {
-      await MFNetwork().getUri("song/counter/$id");
+      await MFNetwork.getUri("song/counter/$id");
     } catch (e) {
       return Future.error(e);
     }
