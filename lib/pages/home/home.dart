@@ -14,7 +14,7 @@ class HomePage extends ConsumerWidget {
     var index = ref.watch(indexProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("KPOP APP"),
+        title: const Text("MF-KPOP APP"),
         actions: [
           IconButton(
             onPressed: () {
